@@ -1,0 +1,23 @@
+@model IEnumerable<Doctor>
+@{ ViewData["Title"] = "Your care, made simpler"; }
+<section class="hero row align-items-center g-4">
+ <div class="col-lg-7">
+  <p class="eyebrow">CARE THAT FITS YOUR LIFE</p>
+  <h1>Good health starts with <span class="text-accent">the right appointment.</span></h1>
+  <p class="lead mt-3">Find trusted clinicians, choose a time that works, and keep your care organized in one place.</p>
+  <a class="btn btn-primary btn-lg mt-2" asp-controller="Doctors" asp-action="Index">Find a doctor <span aria-hidden="true">→</span></a>
+  <p class="small text-secondary mt-3">Simple scheduling. Clear information. A more thoughtful patient experience.</p>
+ </div>
+ <div class="col-lg-5"><img class="hero-image" src="~/images/clinic-hero.svg" alt="Illustration of a welcoming medical clinic" /></div>
+</section>
+<section class="section-space">
+ <div class="d-flex flex-wrap justify-content-between align-items-end mb-4"><div><p class="eyebrow">OUR CARE TEAM</p><h2>Meet our doctors</h2></div><a asp-controller="Doctors" asp-action="Index">View all doctors →</a></div>
+ <div class="row g-4">
+ @foreach (var doctor in Model.Take(3)) {
+  <div class="col-md-6 col-lg-4"><article class="doctor-card h-100">
+   <img src="@doctor.ImagePath" alt="Illustrated portrait of @doctor.FullName" class="doctor-photo" />
+   <div class="p-4"><span class="specialty">@doctor.Specialty</span><h3 class="h5 mt-2">@doctor.FullName</h3><p class="text-secondary">@doctor.Clinic</p><a class="btn btn-outline-primary w-100" asp-controller="Doctors" asp-action="Details" asp-route-id="@doctor.Id">View profile</a></div>
+  </article></div>
+ }
+ </div>
+</section>

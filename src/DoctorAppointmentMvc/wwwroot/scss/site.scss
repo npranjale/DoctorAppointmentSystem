@@ -1,0 +1,12 @@
+// Sass source: compile to wwwroot/css/site.css when changing design tokens.
+$navy: #16324f;
+$blue: #176b87;
+$mint: #dff3ee;
+$ink: #233746;
+
+:root {
+  --navy: #{$navy};
+  --blue: #{$blue};
+  --mint: #{$mint};
+  --ink: #{$ink};
+}

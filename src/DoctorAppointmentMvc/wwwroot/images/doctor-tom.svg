@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" role="img" aria-label="Illustrated doctor portrait">
+<rect width="500" height="320" fill="#b8d5e2"/><circle cx="250" cy="115" r="68" fill="#f1c7a5"/>
+<path d="M180 110q0-88 72-88 70 0 72 88-30-28-72-28-40 0-72 28" fill="#35485a"/>
+<path d="M120 320q10-130 130-130t130 130" fill="#fff"/><path d="M220 195h60l-30 70z" fill="#176b87"/>
+<rect x="238" y="230" width="24" height="50" rx="5" fill="#dff3ee"/><path d="M250 240v30m-15-15h30" stroke="#176b87" stroke-width="5"/>
+</svg>

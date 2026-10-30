@@ -1,0 +1,9 @@
+@model IEnumerable<Appointment>
+@{ ViewData["Title"] = "My appointments"; }
+<div class="page-heading"><p class="eyebrow">YOUR CARE</p><h1>My appointments</h1><p class="lead">Review your appointment requests and upcoming visits.</p></div>
+@if (!Model.Any()) { <div class="empty-state"><h2 class="h4">No appointments yet</h2><p>Choose a doctor to request your first appointment.</p><a class="btn btn-primary" asp-controller="Doctors" asp-action="Index">Browse doctors</a></div> }
+else {
+ <div class="table-responsive"><table class="table align-middle"><caption class="visually-hidden">Your appointment requests</caption><thead><tr><th scope="col">Doctor</th><th scope="col">Date</th><th scope="col">Time</th><th scope="col">Status</th></tr></thead><tbody>
+ @foreach (var item in Model) { <tr><td>@item.Doctor?.FullName<br /><span class="text-secondary small">@item.Doctor?.Specialty</span></td><td>@item.AppointmentDate.ToString("MMM dd, yyyy")</td><td>@item.TimeSlot</td><td><span class="status-pill">@item.Status</span></td></tr> }
+ </tbody></table></div>
+}

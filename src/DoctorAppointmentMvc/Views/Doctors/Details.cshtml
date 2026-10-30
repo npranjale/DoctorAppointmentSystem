@@ -1,0 +1,6 @@
+@model Doctor
+@{ ViewData["Title"] = Model.FullName; }
+<div class="row g-4 align-items-center detail-panel">
+ <div class="col-md-4"><img src="@Model.ImagePath" class="img-fluid rounded-4" alt="Illustrated portrait of @Model.FullName" /></div>
+ <div class="col-md-8"><p class="eyebrow">@Model.Specialty</p><h1>@Model.FullName</h1><p class="lead">@Model.Bio</p><p><strong>Clinic:</strong> @Model.Clinic</p><p><strong>Consultation fee:</strong> $@Model.ConsultationFee.ToString("0.00")</p><a class="btn btn-primary btn-lg" asp-controller="Appointments" asp-action="Create" asp-route-doctorId="@Model.Id">Book appointment</a></div>
+</div>
