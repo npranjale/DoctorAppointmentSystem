@@ -1,7 +1,5 @@
-# CarePoint — Doctor Appointment MVC Sample
-
-A runnable ASP.NET Core MVC sample for patient registration, doctor discovery, and appointment requests.
-
+# My Hospital — Doctor Appointment System
+A hospital appointment management system for patient. This project is developed for demo and not for distribution for commercial use.
 ## Technology
 - .NET 8 / C# / ASP.NET Core MVC
 - ASP.NET Core Identity for authentication and password hashing
@@ -23,7 +21,7 @@ Demo patient:
 - Email: `patient@example.com`
 - Password: `Patient@12345`
 
-You can also create a new patient account from the UI. Do not use the demo credentials outside local development.
+You can also create a new patient account from the UI.
 
 ## Use SQL Server instead
 1. Start SQL Server or LocalDB.
@@ -42,7 +40,7 @@ You can also create a new patient account from the UI. Do not use the demo crede
 DoctorAppointmentMvc/
 ├── database/schema.sql
 ├── docs/ (design and security notes)
-└── src/DoctorAppointmentMvc/
+└── src/DoctorAppointmentSystem/
     ├── Controllers/
     ├── Data/
     ├── Middleware/
@@ -63,10 +61,9 @@ DoctorAppointmentMvc/
 MVC controllers handle HTTP and model binding; view models isolate form input; services contain booking/doctor rules; EF Core context owns persistence; Identity manages users, roles, cookies and password hashes; middleware adds baseline security headers.
 
 ## Accessibility checklist (WCAG 2.1 AA target)
-This sample includes a skip link, semantic landmarks, descriptive image alternatives, table captions and scoped headers, labels, validation summaries, keyboard-visible focus, responsive reflow, and status announcements. Before release, test every flow with keyboard-only navigation, JAWS + Chrome/Edge, axe DevTools, zoom at 200–400%, contrast analysis, and reduced-motion preferences. Automated scans do not establish conformance.
+This system includes a skip link, semantic landmarks, descriptive image alternatives, table captions and scoped headers, labels, validation summaries, keyboard-visible focus, responsive reflow, and status announcements. Before release, test every flow with keyboard-only navigation, JAWS + Chrome/Edge, axe DevTools, zoom at 200–400%, contrast analysis, and reduced-motion preferences. Automated scans do not establish conformance.
 
 ## Security and sensitive data
-This is a learning/demo project, not a HIPAA or state-compliance-ready medical system. Do not enter real patient data. Before production:
 - Define applicable state/federal requirements, data classification, retention, breach response and audit policies with counsel/security.
 - Enforce TLS, secure cookies, secrets management, least-privilege database identities, MFA, rate limiting, monitoring and tested backups.
 - Encrypt sensitive fields using an approved envelope-encryption design backed by Azure Key Vault/managed HSM; rotate keys. Do not invent or hard-code encryption keys.
@@ -75,4 +72,4 @@ This is a learning/demo project, not a HIPAA or state-compliance-ready medical s
 - Use CSP with a reviewed nonce/hash strategy; current Bootstrap CDN references should be pinned/self-hosted with integrity attributes in production.
 
 ## Notes
-The cancellation action intentionally displays a placeholder message; it does not mutate appointment status. The sample is intended as a solid starter skeleton rather than a complete clinical product.
+The cancellation action intentionally displays a placeholder message; it does not mutate appointment status. The system is intended as a solid starter skeleton rather than a complete clinical product.
