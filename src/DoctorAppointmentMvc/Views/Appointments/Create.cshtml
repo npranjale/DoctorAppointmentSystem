@@ -1,11 +1,27 @@
 @model BookAppointmentViewModel
-@{ ViewData["Title"] = "Book appointment"; }
-<div class="form-card"><p class="eyebrow">BOOK A VISIT</p><h1 class="h2">Request an appointment</h1><p class="text-secondary">With @Model.DoctorName</p>
-<form asp-action="Create" method="post">
- <input asp-for="DoctorId" type="hidden" /><div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
- <div class="mb-3"><label asp-for="AppointmentDate" class="form-label">Preferred date</label><input asp-for="AppointmentDate" class="form-control" min="@DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")" /><span asp-validation-for="AppointmentDate" class="text-danger"></span></div>
- <div class="mb-3"><label asp-for="TimeSlot" class="form-label">Available time</label><select asp-for="TimeSlot" class="form-select"><option value="">Choose a time</option>@foreach (var slot in new[] { "09:00 AM", "10:00 AM", "11:00 AM", "01:00 PM", "02:00 PM", "03:00 PM" }) { <option value="@slot">@slot</option> }</select><span asp-validation-for="TimeSlot" class="text-danger"></span></div>
- <div class="mb-4"><label asp-for="Reason" class="form-label">Reason for visit <span class="text-secondary">(optional)</span></label><textarea asp-for="Reason" class="form-control" rows="3" aria-describedby="reason-help"></textarea><div id="reason-help" class="form-text">Do not enter emergency details or highly sensitive medical information in this demo.</div></div>
- <button type="submit" class="btn btn-primary">Submit appointment request</button> <a asp-controller="Doctors" asp-action="Index" class="btn btn-link">Cancel</a>
-</form></div>
-@section Scripts { <partial name="_ValidationScriptsPartial" /> }
+@{
+    ViewData["Title"] = "Book appointment";
+}
+<div class="form-card">
+    <p class="eyebrow">BOOK A VISIT</p><h1 class="h2">Request an appointment</h1><p class="text-secondary">With @Model.DoctorName</p>
+    <form asp-action="Create" method="post">
+        <input asp-for="DoctorId" type="hidden" /><div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+        <div class="mb-3"><label asp-for="AppointmentDate" class="form-label">Preferred date</label><input asp-for="AppointmentDate" class="form-control" min="@DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")" /><span asp-validation-for="AppointmentDate" class="text-danger"></span></div>
+        <div class="mb-3">
+            <label asp-for="TimeSlot" class="form-label">Available time</label>
+            <select asp-for="TimeSlot" class="form-select">
+                <option value="">Choose a time</option>
+                @foreach (var slot in new[] { "09:00 AM", "10:00 AM", "11:00 AM", "01:00 PM", "02:00 PM", "03:00 PM" })
+                {
+                    <option value="@slot">@slot</option>
+                }
+            </select>
+            <span asp-validation-for="TimeSlot" class="text-danger"></span>
+        </div>
+        <div class="mb-4"><label asp-for="Reason" class="form-label">Reason for visit <span class="text-secondary">(optional)</span></label><textarea asp-for="Reason" class="form-control" rows="3" aria-describedby="reason-help"></textarea><div id="reason-help" class="form-text">Do not enter emergency details or highly sensitive medical information in this demo.</div></div>
+        <button type="submit" class="btn btn-primary">Submit appointment request</button> <a asp-controller="Doctors" asp-action="Index" class="btn btn-link">Cancel</a>
+    </form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

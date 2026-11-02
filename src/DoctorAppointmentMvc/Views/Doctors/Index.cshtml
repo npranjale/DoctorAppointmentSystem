@@ -1,8 +1,11 @@
 @model IEnumerable<Doctor>
-@{ ViewData["Title"] = "Find a doctor"; }
+@{
+    ViewData["Title"] = "Find a doctor";
+}
 <div class="page-heading"><p class="eyebrow">CARE TEAM</p><h1>Find the right doctor</h1><p class="lead">Browse clinicians and book a consultation.</p></div>
 <div class="row g-4">
-@foreach (var doctor in Model) {
- <div class="col-md-6 col-lg-4"><article class="doctor-card h-100"><img src="@doctor.ImagePath" alt="Illustrated portrait of @doctor.FullName" class="doctor-photo" /><div class="p-4"><span class="specialty">@doctor.Specialty</span><h2 class="h5 mt-2">@doctor.FullName</h2><p class="text-secondary">@doctor.Bio</p><div class="d-flex justify-content-between align-items-center"><strong>$@doctor.ConsultationFee.ToString("0.00")</strong><a asp-action="Details" asp-route-id="@doctor.Id">Details →</a></div></div></article></div>
-}
+    @foreach (var doctor in Model)
+    {
+        <div class="col-md-6 col-lg-4"><article class="doctor-card h-100"><img src="@doctor.ImagePath" alt="Illustrated portrait of @doctor.FullName" class="doctor-photo" /><div class="p-4"><span class="specialty">@doctor.Specialty</span><h2 class="h5 mt-2">@doctor.FullName</h2><p class="text-secondary">@doctor.Bio</p><div class="d-flex justify-content-between align-items-center"><strong>$@doctor.ConsultationFee.ToString("0.00")</strong><a asp-action="Details" asp-route-id="@doctor.Id">Details →</a></div></div></article></div>
+    }
 </div>
